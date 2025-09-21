@@ -1,0 +1,67 @@
+.menu-sidebar {
+    width: 200px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background: #f3f1f1;
+    overflow-y: auto
+}
+
+.menu-sidebar .logo {
+    background: #0f1111;
+    height: 75px;
+    padding: 0 35px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .1);
+    -moz-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .1);
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .1);
+    border-right: 1px solid #0f1111;
+    position: relative;
+    z-index: 3
+}
+
+.menu-sidebar .logo a {
+    display: inline-flex;
+    font-family: "Arial", sans-serif;
+    font-weight: bold;
+    align-items: flex-end;
+    font-size: 28px;
+    color: white;
+    text-decoration: none;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.menu-sidebar .logo a:hover {
+    transform: scale(1.05);
+}
+
+.logoIn {
+    font-size: medium;
+}
+
+.menu-sidebar .logo-text {
+    margin-right: 5px;
+    letter-spacing: 1px;
+}
+
+.menu-sidebar .logo a:hover .logo-arrow {
+    transform: scaleX(1.1) translateY(2px);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}

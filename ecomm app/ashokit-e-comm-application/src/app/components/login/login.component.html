@@ -1,0 +1,29 @@
+<div class="container">
+
+    <div class="form">
+
+        <form (ngSubmit)="login()" #loginForm="ngForm">
+            <h2>Sign in</h2>
+            <div>
+                <label>Email</label>
+                <input type="email" [(ngModel)]="email" name="email" required placeholder="Enter your email">
+            </div>
+            <div>
+                <label>Password</label>
+                <input type="password" [(ngModel)]="password" name="password" required
+                    placeholder="Enter your Password">
+            </div>
+            <div class="link">
+                <a class="link1" routerLink="/register"> Create New Account <a class="link2" routerLink="/forgotpwd">Forgot Password</a></a>
+                
+            </div>
+            <button type="submit" [disabled]="!loginForm.form.valid"> Sign in</button>
+
+            <p *ngIf="errorMessage" style="color:red">{{ errorMessage }}</p>
+            <p *ngIf="successMessage" style="color:green">{{ successMessage }}</p>
+
+        </form>
+
+    </div>
+
+</div>

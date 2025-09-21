@@ -1,0 +1,10 @@
+<div class="search">
+  <input #myInput type="text" 
+    class="search-input" 
+    placeholder="Search for products ..."
+    (keyup)="doSearch(myInput.value)">
+    
+  <button (click)="doSearch(myInput.value)" class="search-button" type="search">
+    <i class="fa fa-search"></i> <!-- font-awesome ka search icon -->
+  </button>
+</div>

@@ -1,0 +1,135 @@
+/* Page Centering */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.reset-container {
+    margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #ece9e6, #ffffff); /* soft background */
+}
+
+/* Card Form */
+.reset-container form {
+  background: #fff;
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  width: 33%;
+  animation: fadeIn 1s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+/* Heading */
+.reset-container h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 1rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+/* Field Group */
+.reset-container div {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Labels */
+.reset-container label {
+  font-size: 14px;
+  color: #555;
+  font-weight: 500;
+  font-weight: bold;
+}
+
+/* Input Fields */
+.reset-container input {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  font-size: 15px;
+  transition: 0.3s;
+}
+
+.reset-container input:focus {
+  border-color: #2575fc;
+  box-shadow: 0 0 5px rgba(37, 117, 252, 0.4);
+}
+
+/* Button */
+.reset-container button {
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: #fff;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.reset-container button:hover {
+  background: linear-gradient(135deg, #2575fc, #6a11cb);
+  transform: scale(1.05);
+}
+
+/* Success Message */
+.success {
+  text-align: center;
+  margin-top: 5px;
+  color: green;
+  font-weight: bold;
+}
+
+/* Error Message */
+.error {
+  text-align: center;
+  margin-top: 5px;
+  color: red;
+  font-weight: bold;
+}
+
+/* Login Link */
+.reset-container p {
+  text-align: center;
+  margin-top: 0.5rem;
+  font-size: 14px;
+}
+.para{
+  color: black;
+    font: weight 600px;;
+  font-size: medium;
+  
+
+}
+
+.reset-container a {
+  color: #2575fc;
+  text-decoration: none;
+  font-weight: 600px;
+  margin-left: 10px;
+  font-size: medium;
+}
+
+.reset-container a:hover {
+  text-decoration: underline;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}

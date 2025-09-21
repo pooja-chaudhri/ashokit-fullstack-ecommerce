@@ -1,0 +1,43 @@
+<div class="reset-container">
+  <form (ngSubmit)="resetPassword()">
+    <h2>Reset Password</h2>
+
+    <!-- Email -->
+    <div>
+      <label>Email</label>
+      <input type="email" [(ngModel)]="email" name="email" placeholder="Enter your email" required>
+    </div>
+
+    <!-- Old Password -->
+    <div>
+      <label>Old Password</label>
+      <input type="password" [(ngModel)]="oldPwd" name="oldPwd" placeholder="Enter old password" required>
+    </div>
+    <!-- New Password -->
+
+    <div>
+      <label>New Password</label>
+      <input type="password" [(ngModel)]="newPwd" name="newPwd" placeholder="Enter new password" required>
+    </div>
+
+    <div>
+      <label>Confirm Password</label>
+      <input type="password" [(ngModel)]="confirmPwd" name="confirmPwd" placeholder="Enter confirm password" required>
+    </div>
+
+    <!-- Submit -->
+    <button type="submit">Reset Password</button>
+
+    <!-- Success -->
+    <p *ngIf="message" class="success">{{ message }}</p>
+
+    <!-- Error -->
+    <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+
+    <!-- Back to login -->
+    <div class="para">
+      <span> Remembered your password?
+        <a routerLink="/login">Back to Login</a></span>
+    </div>
+  </form>
+</div>

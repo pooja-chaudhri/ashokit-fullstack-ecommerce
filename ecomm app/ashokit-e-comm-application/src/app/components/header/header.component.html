@@ -1,0 +1,29 @@
+<header class="header-desktop">
+  <div class="section-content section-content-p30">
+    <div class="container-fluid">
+      <div class="header-wrap">
+
+        <!-- Search -->
+        <app-search></app-search>
+        <app-cart-status></app-cart-status>
+
+        <!-- Auth Link -->
+        <div class="para2">
+          <ng-container *ngIf="!(isLoggedIn$ | async); else loggedIn">
+            <!-- Show Login if not logged in -->
+            <a routerLink="/login">Sign In</a>
+          </ng-container>
+
+          <ng-template #loggedIn>
+            <!-- Show Logout if logged in -->
+            <a href="/login" (click)="logout()" >Sign Out</a>
+          </ng-template>
+        </div>
+
+        <!-- Cart -->
+        
+
+      </div>
+    </div>
+  </div>
+</header>

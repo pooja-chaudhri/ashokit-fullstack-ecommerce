@@ -1,0 +1,29 @@
+<div class="register-container">
+    <div class="sub-container">
+        <form (ngSubmit)="register()" #registerForm="ngForm">
+            <h2>Register</h2>
+            <div>
+                <label>Full Name</label>
+                <input type="text" [(ngModel)]="name" name="name" required placeholder="Enter your full name">
+            </div>
+            <div>
+                <label>Email</label>
+                <input type="email" [(ngModel)]="email" name="email" required placeholder="Enter your email">
+            </div>
+            <div>
+                <label>Phone</label>
+                <input type="number" [(ngModel)]="phno" name="phno" required placeholder="Enter your phone number">
+            </div>
+            <button type="submit" [disabled]="!registerForm.form.valid"> Register</button>
+
+            <p *ngIf="errorMessage" style="color:red">{{ errorMessage }}</p>
+            <p *ngIf="successMessage" style="color:green">{{ successMessage }}</p>
+
+            <p class="link">have an account? <a routerLink="/login">Sign In</a> <a class="link2"
+                    routerLink="/resetPwd">Reset Password</a>
+            </p>
+
+        </form>
+    </div>
+
+</div>

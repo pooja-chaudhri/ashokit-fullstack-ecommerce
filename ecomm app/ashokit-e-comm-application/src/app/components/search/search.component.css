@@ -1,0 +1,39 @@
+.search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px auto;
+   width:  580px;
+ 
+}
+
+.search-input {
+  flex: 1;
+  height: 45px;       /* 👈 thoda bada rakha */
+  font-size: 18px;    /* 👈 larger text */
+  padding: 5px 12px;
+  border: 1px solid #ccc;
+  border-right: none;
+  border-radius: 6px 0 0 6px;
+  outline: none;
+}
+
+.search-input:focus {
+  border-color: #f0c14b;
+  box-shadow: 0 0 6px rgba(240,193,75,0.6);
+}
+
+.search-button {
+  height: 45px;
+  width: 55px;        /* 👈 button bhi bada */
+  border: none;
+  background-color: #f8a334; /* Amazon orange */
+  color: black;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 0 6px 6px 0;
+}
+
+.search-button:hover {
+  background-color: #ed8b0a;
+}
