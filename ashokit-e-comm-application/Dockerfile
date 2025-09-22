@@ -14,9 +14,11 @@ RUN npm run build --prod
 FROM nginx:alpine
 
 # Copy the built Angular app to Nginx's html folder
-COPY --from=build /app/dist/ashokit-e-comm-application /usr/share/nginx/html
+COPY --from=build /app/dist/ashokit-e-comm-application/browser/ /usr/share/nginx/html
 
 # Expose port 80
 EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
+
 
 
