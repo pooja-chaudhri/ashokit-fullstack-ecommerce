@@ -1,0 +1,69 @@
+version: '3.8'
+
+services:
+  # MySQL Database
+  mysql-db:
+    image: mysql:8
+    container_name: mysql-db
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: sbms
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+
+  # Customer API
+  customer-api:
+    build: ./Customer_API
+    container_name: customer-api
+    ports:
+      - "8081:8081"  # hostPort:containerPort
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql-db:3306/sbms
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+    depends_on:
+      - mysql-db
+ # Orders API
+  orders-api:
+    build: ./Orders_API
+    container_name: orders-api
+    ports:
+      - "8082:8081"  # hostPort different, containerPort same as server.port
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql-db:3306/sbms
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+    depends_on:
+      - mysql-db
+
+  # Product API
+  product-api:
+    build: ./Product_API
+    container_name: product-api
+    ports:
+      - "8083:8081"  # hostPort different, containerPort same as server.port
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql-db:3306/sbms
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+    depends_on:
+      - mysql-db
+
+
+  # Angular Frontend
+  angular-frontend:
+    build: ./angular_frontend
+    container_name: angular-frontend
+    ports:
+      - "4200:80"
+    depends_on:
+      - customer-api
+      - product-api
+      - orders-api
+
+volumes:
+  db_data:
