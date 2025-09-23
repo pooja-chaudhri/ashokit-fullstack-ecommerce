@@ -17,22 +17,23 @@ services:
 
   # Customer API
   customer-api:
-    build: ./Customer_API
+    image: poojachaudhri/customer-api:latest
     container_name: customer-api
     ports:
-      - "8081:8081"  # hostPort:containerPort
+      - "8081:8081"
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql-db:3306/sbms
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: root
     depends_on:
       - mysql-db
- # Orders API
+
+  # Orders API
   orders-api:
-    build: ./Orders_API
+    image: poojachaudhri/orders-api:latest
     container_name: orders-api
     ports:
-      - "8082:8081"  # hostPort different, containerPort same as server.port
+      - "8082:8081"
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql-db:3306/sbms
       SPRING_DATASOURCE_USERNAME: root
@@ -42,10 +43,10 @@ services:
 
   # Product API
   product-api:
-    build: ./Product_API
+    image: poojachaudhri/product-api:latest
     container_name: product-api
     ports:
-      - "8083:8081"  # hostPort different, containerPort same as server.port
+      - "8083:8081"
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql-db:3306/sbms
       SPRING_DATASOURCE_USERNAME: root
@@ -53,10 +54,9 @@ services:
     depends_on:
       - mysql-db
 
-
   # Angular Frontend
   angular-frontend:
-    build: ./angular_frontend
+    image: poojachaudhri/angular-frontend:latest
     container_name: angular-frontend
     ports:
       - "4200:80"
