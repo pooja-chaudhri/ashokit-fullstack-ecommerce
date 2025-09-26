@@ -22,7 +22,7 @@ import com.example.response.PurchaseOrderResponse;
 import com.example.services.OrderServices;
 
 @RestController
-@CrossOrigin(origins = "http://43.204.115.141:4200")
+@CrossOrigin(origins = {"http://localhost:4200", "http://43.204.115.141:4200"})
 public class orderRestController {
 
 	@Autowired
