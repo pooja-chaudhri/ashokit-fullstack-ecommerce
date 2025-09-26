@@ -11,7 +11,7 @@ export class ProductService {
   constructor(private http:HttpClient) { }
 
   public getAllProduct():Observable<any>{
-    return this.http.get<any>(`${AppConstant.prodcuct_endpoint}`);
+    return this.http.get<any>(`${AppConstant.product_endpoint}`);
   }
   
   getProductsByCategoryId(theCategoryId: number): Observable<any> {
