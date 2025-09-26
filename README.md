@@ -78,10 +78,10 @@ sudo docker-compose up -d
 | Angular Frontend                            |  --->  | REST APIs (Spring)|  --->  |     MySQL DB    |
 |  - Products                                 |        | Customer, Orders, |        |  Database sbms  |
 |  - Search                                   |        | Product APIs)     |        |                 |
-|  - Filter by Category                        |        |                   |        |                 |
+|  - Filter by Category                       |        |                   |        |                 |
 |  - User Login                               |        |                   |        |                 |
-|  - Book Product                              |        |                   |        |                 |
-|  - Payment                                   |        |                   |        |                 |
+|  - Book Product                             |        |                   |        |                 |
+|  - Payment                                  |        |                   |        |                 |
 +---------------------------------------------+        +-------------------+        +-----------------+
 
 ```
