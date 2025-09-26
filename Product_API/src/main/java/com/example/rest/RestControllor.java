@@ -17,7 +17,7 @@ import com.example.apiResponse.ApiResponse;
 import com.example.services.ProductServices;
 
 @RestController
-@CrossOrigin(origins = "http://43.204.115.141:4200")
+@CrossOrigin(origins = {"http://localhost:4200", "http://43.204.115.141:4200"})
 public class RestControllor {
 
 	@Autowired
