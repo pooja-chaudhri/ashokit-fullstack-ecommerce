@@ -74,11 +74,16 @@ sudo docker-compose up -d
 ## 🏗 Architecture Diagram
 
 ```
-+-----------------+        +-------------------+        +-----------------+
-| Angular Frontend|  --->  | REST APIs (Spring)|  --->  |     MySQL DB    |
-|  (Products,     |        | Customer, Orders, |        |  Database sbms  |
-|   Orders, etc.) |        | Product APIs)     |        |                 |
-+-----------------+        +-------------------+        +-----------------+
++---------------------------------------------+        +-------------------+        +-----------------+
+| Angular Frontend                            |  --->  | REST APIs (Spring)|  --->  |     MySQL DB    |
+|  - Products                                 |        | Customer, Orders, |        |  Database sbms  |
+|  - Search                                   |        | Product APIs)     |        |                 |
+|  - Filter by Category                        |        |                   |        |                 |
+|  - User Login                               |        |                   |        |                 |
+|  - Book Product                              |        |                   |        |                 |
+|  - Payment                                   |        |                   |        |                 |
++---------------------------------------------+        +-------------------+        +-----------------+
+
 ```
 
 ---
