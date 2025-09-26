@@ -1,128 +1,97 @@
 
-# Ashokit Fullstack E-Commerce Application
+# 🛒 Full Stack E-Commerce Application
 
-This is a **full-stack e-commerce application** developed using **Angular** (frontend), **Spring Boot** (backend APIs), and **MySQL** (database). The application is dockerized and can be deployed on **AWS EC2**.
-
----
-
-## **Project Overview**
-
-- **Frontend:** Angular  
-- **Backend APIs:** Spring Boot (Customer API, Orders API, Product API)  
-- **Database:** MySQL  
-- **Deployment:** Docker, Docker Compose, EC2  
+This project is a **Full Stack E-Commerce Application** built with:
+- **Backend**: Java, Spring Boot, Microservices, REST APIs, JPA
+- **Frontend**: Angular
+- **Database**: MySQL (with preloaded schema & data)
+- **Containerization**: Docker & Docker Compose
 
 ---
 
-## **Docker Compose Services**
+## ⚙️ Prerequisites
 
-```yaml
-services:
-  mysql-db:
-    image: mysql:8
-    container_name: mysql-db
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: sbms
-    ports:
-      - "3306:3306"
-
-  customer-api:
-    image: poojachaudhri/customer-api:latest
-    container_name: customer-api
-    ports:
-      - "8081:8081"
-    depends_on:
-      - mysql-db
-
-  orders-api:
-    image: poojachaudhri/orders-api:latest
-    container_name: orders-api
-    ports:
-      - "8082:8082"
-    depends_on:
-      - mysql-db
-
-  product-api:
-    image: poojachaudhri/product-api:latest
-    container_name: product-api
-    ports:
-      - "8083:8083"
-    depends_on:
-      - mysql-db
-
-  angular-frontend:
-    image: poojachaudhri/angular-frontend:latest
-    container_name: angular-frontend
-    ports:
-      - "4200:80"
-    depends_on:
-      - customer-api
-      - orders-api
-      - product-api
-```
-
-## **Accessing the Application on EC2**
-
-- Angular Frontend: http://<EC2_PUBLIC_IP>:4200  
-- Customer API: http://<EC2_PUBLIC_IP>:8081  
-- Orders API: http://<EC2_PUBLIC_IP>:8082  
-- Product API: http://<EC2_PUBLIC_IP>:8083  
-
-Replace `<EC2_PUBLIC_IP>` with your EC2 instance’s public IP.
+- **AWS EC2 instance** (Ubuntu recommended)
+- **Docker** & **Docker Compose** installed
+- **Git** installed
 
 ---
 
-## **API Endpoints**
+## ✨ Features
 
-**Customer API**  
-- POST /register - Register a new customer  
-- POST /login - Customer login  
-- POST /resetPwd - Reset password  
-- GET /forgotpwd/{email} - Forgot password  
-
-**Orders API**  
-- POST /createOrder - Create an order  
-- PUT /updateOrder - Update an order  
-
-**Product API**  
-- GET /AllProduct - List all products  
-- GET /product - Get product details  
-- GET /category - List all categories  
-- GET /productByName - Search product by name  
+- 👤 **User Authentication**: Login & Registration functionality
+- 🛍 **Product Catalog**: Browse all available products
+- 🔎 **Search**: Quickly find products by name
+- 🗂 **Filter by Category**: View products based on selected categories
+- 🛒 **Order Booking**: Add products to cart and place an order
+- 📦 **Order Management**: Manage placed orders
 
 ---
 
-## **Setup & Run**
+## 🎬 Demo Video
 
-Clone the repository:
+You can **download or watch the demo video** here:
+[Demo Video](https://github.com/pooja-chaudhri/ashokit-fullstack-ecommerce/blob/main/ashokit-e-comm-application/public/Demo%20Link.mp4)
+
+---
+
+## 💻 Run on EC2
+
+I have successfully deployed and run this application on an **AWS EC2 instance**. Anyone can also deploy it on their **own EC2 instance** using the steps below:
 
 ```bash
-git clone <YOUR_REPO_URL>
+# SSH into your EC2 instance
+ssh -i your-key.pem ubuntu@<EC2-IP>
+
+# Install Docker & Docker Compose
+sudo apt update -y
+sudo apt install -y docker.io docker-compose git -y
+sudo systemctl enable docker
+sudo systemctl start docker
+
+# Clone the repository
+git clone https://github.com/pooja-chaudhri/ashokit-fullstack-ecommerce.git
 cd ashokit-fullstack-ecommerce
+
+# Start all services
+sudo docker-compose up -d
 ```
 
-Run Docker Compose:
-
-```bash
-docker-compose up -d
-```
-
-Access the frontend and APIs using the EC2 public IP and exposed ports.
+> I have personally run the application this way on an EC2 instance. Anyone following these steps can deploy it on their own EC2 machine and run the full application.
 
 ---
 
-## **Technologies Used**
+### 🗄 MySQL Database
 
-- Angular  
-- Spring Boot, Spring Security, Spring Data JPA  
-- MySQL  
-- Docker, Docker Compose  
-- AWS EC2  
+- **Database Name:** `sbms`
+- **Username:** `root`
+- **Password:** `root`
+- The database is automatically created when you run `docker-compose up`.
+- **Preloaded Data:** `Dump20250923.sql`
 
 ---
 
-## **Author**
+## 🏗 Architecture Diagram
 
-Pooja Chaudhri  
-[LinkedIn](https://www.linkedin.com/in/pooja-chaudhri)
+```
++-----------------+        +-------------------+        +-----------------+
+| Angular Frontend|  --->  | REST APIs (Spring)|  --->  |     MySQL DB    |
+|  (Products,     |        | Customer, Orders, |        |  Database sbms  |
+|   Orders, etc.) |        | Product APIs)     |        |                 |
++-----------------+        +-------------------+        +-----------------+
+```
+
+---
+
+## 📁 ashokit-fullstack-ecommerce/
+│
+├─ customer-api/           # Spring Boot API for Customer
+├─ orders-api/             # Spring Boot API for Orders
+├─ product-api/            # Spring Boot API for Product
+│
+├─ angular-frontend/       # Angular Frontend application
+│
+├─ Dump20250923.sql        # MySQL preloaded database
+├─ docker-compose.yml      # Docker Compose configuration
+└─ README.md               # Project documentation
+```
