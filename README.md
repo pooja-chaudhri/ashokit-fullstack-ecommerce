@@ -133,9 +133,9 @@ ashokit-fullstack-ecommerce/
 
 ## 📸 Demo Screenshots
 
-### 1️⃣ Login Page (Validation) (screenshots/login.png)
+### 1️⃣ Login Page (Validation) 
 
-![Login Page]
+![Login Page] (screenshots/login.png)
 
 ### 2️⃣ Registration Page (Success)
 
