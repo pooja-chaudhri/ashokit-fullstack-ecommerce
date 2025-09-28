@@ -1,43 +1,45 @@
-
 # 🛒 Full Stack E-Commerce Application
 
-This project is a **Full Stack E-Commerce Application** built with:
-- **Backend**: Java, Spring Boot, Microservices, REST APIs, JPA
-- **Frontend**: Angular
-- **Database**: MySQL (with preloaded schema & data)
-- **Containerization**: Docker & Docker Compose
+Full Stack E-Commerce web application with Java Spring Boot microservices backend and Angular frontend, deployed using Docker.
+
+This is a **Full Stack E-Commerce Application** built with:
+
+* **Backend**: Java, Spring Boot, Microservices, REST APIs, JPA
+* **Frontend**: Angular
+* **Database**: MySQL (with preloaded schema & data)
+* **Containerization**: Docker & Docker Compose
 
 ---
 
 ## ⚙️ Prerequisites
 
-- **AWS EC2 instance** (Ubuntu recommended)
-- **Docker** & **Docker Compose** installed
-- **Git** installed
+* **AWS EC2 instance** (Ubuntu recommended) for cloud deployment
+* **Docker** & **Docker Compose** installed
+* **Node.js** & **Angular CLI** installed (for frontend)
+* **Git** installed
+* Local machine with **ports 8081, 8082, 8083, 3306** free
+* MySQL Workbench or MySQL service (optional if using Dockerized MySQL)
 
 ---
 
 ## ✨ Features
 
-- 👤 **User Authentication**: Login & Registration functionality
-- 🛍 **Product Catalog**: Browse all available products
-- 🔎 **Search**: Quickly find products by name
-- 🗂 **Filter by Category**: View products based on selected categories
-- 🛒 **Order Booking**: Add products to cart and place an order
-- 📦 **Order Management**: Manage placed orders
+* 👤 **User Authentication**: Login & Registration
+* 🛍 **Product Catalog**: Browse products with categories
+* 🔎 **Search**: Quickly find products by name
+* 🗂 **Filter by Category**: View products based on selected categories
+* 🛒 **Order Booking**: Add products to cart and place an order
+* 📦 **Order Management**: Manage placed orders
 
 ---
 
 ## 🎬 Demo Video
 
-You can **download or watch the demo video** here:
 [Demo Video](https://github.com/pooja-chaudhri/ashokit-fullstack-ecommerce/blob/main/ashokit-e-comm-application/public/Demo%20Link.mp4)
 
 ---
 
-## 💻 Run on EC2
-
-I have successfully deployed and run this application on an **AWS EC2 instance**. Anyone can also deploy it on their **own EC2 instance** using the steps below:
+## 💻 EC2 Deployment (Docker)
 
 ```bash
 # SSH into your EC2 instance
@@ -57,17 +59,41 @@ cd ashokit-fullstack-ecommerce
 sudo docker-compose up -d
 ```
 
-> I have personally run the application this way on an EC2 instance. Anyone following these steps can deploy it on their own EC2 machine and run the full application.
+> Application will be available through the EC2 public IP configured in Angular `AppConstant.ts`.
 
 ---
 
-### 🗄 MySQL Database
+## 🐳 Run Locally Using Docker (Frontend on Host)
 
-- **Database Name:** `sbms`
-- **Username:** `root`
-- **Password:** `root`
-- The database is automatically created when you run `docker-compose up`.
-- **Preloaded Data:** `Dump20250923.sql`
+```bash
+# Clone the repository
+git clone https://github.com/pooja-chaudhri/ashokit-fullstack-ecommerce.git
+cd ashokit-fullstack-ecommerce
+
+# Start backend services in Docker
+docker-compose up -d
+```
+
+* Services running locally:
+
+  * Customer API → `http://localhost:8081`
+  * Orders API → `http://localhost:8082`
+  * Product API → `http://localhost:8083`
+  * MySQL Database → `3306` (preloaded with `sbms`)
+
+* Run Angular frontend on host:
+
+```bash
+cd angular-frontend
+npm install        # only first time
+ng serve
+```
+
+* Angular app will run at: `http://localhost:4200`
+
+* You can now test all features: login, browse products, add to cart, checkout, view orders.
+
+> **Note:** If you already updated `AppConstant.ts` to point to `localhost` URLs, no changes are needed.
 
 ---
 
@@ -75,20 +101,22 @@ sudo docker-compose up -d
 
 ```
 +---------------------------------------------+        +-------------------+        +-----------------+
-| Angular Frontend                            |  --->  | REST APIs (Spring)|  --->  |     MySQL DB    |
+| Angular Frontend                            |  --->  | REST APIs (Spring |  --->  |     MySQL DB    |
 |  - Products                                 |        | Customer, Orders, |        |  Database sbms  |
 |  - Search                                   |        | Product APIs)     |        |                 |
 |  - Filter by Category                       |        |                   |        |                 |
 |  - User Login                               |        |                   |        |                 |
-|  - Book Product                             |        |                   |        |                 |
+|  - Book order                               |        |                   |        |                 |
 |  - Payment                                  |        |                   |        |                 |
 +---------------------------------------------+        +-------------------+        +-----------------+
-
 ```
 
 ---
 
-## 📁 ashokit-fullstack-ecommerce/
+## 📁 Project Structure
+
+```
+ashokit-fullstack-ecommerce/
 │
 ├─ customer-api/           # Spring Boot API for Customer
 ├─ orders-api/             # Spring Boot API for Orders
@@ -98,5 +126,50 @@ sudo docker-compose up -d
 │
 ├─ Dump20250923.sql        # MySQL preloaded database
 ├─ docker-compose.yml      # Docker Compose configuration
+├─ screenshots/            # Screenshots for README
 └─ README.md               # Project documentation
 ```
+
+---
+
+## 📸 Demo Screenshots
+
+### 1️⃣ Login Page (Validation)
+
+![Login Page](screenshots/login.png)
+
+### 2️⃣ Registration Page (Success)
+
+![Registration Page](screenshots/register.png)
+
+### 3️⃣ Home Page / Product Catalog
+
+![Homepage](screenshots/homepage.png)
+
+### 4️⃣ Category-wise Filter
+
+![Category Filter](screenshots/category-filter.png)
+
+### 5️⃣ Cart Page
+
+![Cart](screenshots/cart.png)
+
+### 6️⃣ Checkout Page (Fill Address / Info)
+
+![Checkout](screenshots/checkout.png)
+
+### 7️⃣ Payment Page (Razorpay)
+
+![Payment](screenshots/payment.png)
+
+### 8️⃣ Payment Confirmation Page
+
+![Payment Success](screenshots/payment-success.png)
+
+### 9️⃣ Order Confirmation Page
+
+![Order Success](screenshots/order-success.png)
+
+### 🔟 Swagger API / Backend Running
+
+![Swagger](screenshots/swagger.png)
