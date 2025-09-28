@@ -59,7 +59,6 @@ cd ashokit-fullstack-ecommerce
 sudo docker-compose up -d
 ```
 
-> Application will be available through the EC2 public IP configured in Angular `AppConstant.ts`.
 
 ---
 
