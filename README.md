@@ -151,7 +151,7 @@ ashokit-fullstack-ecommerce/
 
 ### 5️⃣ Cart Page
 
-![Cart][(screenshots/cart.png)](https://github.com/pooja-chaudhri/ashokit-fullstack-ecommerce/blob/main/screenshots/cart.png)
+![Cart](https://github.com/pooja-chaudhri/ashokit-fullstack-ecommerce/blob/main/screenshots/cart.png)
 
 ### 6️⃣ Checkout Page (Fill Address / Info)
 
