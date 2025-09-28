@@ -2,6 +2,9 @@
 <section name="Workbench">
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="C:\Users\pscha\JRTP Workspace\ecommerce-app\Product_API"/>
+			<item value="C:\Users\pscha\JRTP Workspace\ecommerce-app\Orders_API"/>
+			<item value="C:\Users\pscha\JRTP Workspace\ecommerce-app\Customer_API"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>

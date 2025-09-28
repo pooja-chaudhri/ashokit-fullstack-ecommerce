@@ -14,7 +14,7 @@ import { HeaderComponent } from './components/header/header.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterModule,ProductCategoryMenuComponent,SearchComponent,CartStatusComponent ,FormsModule,LoginComponent,RegisterComponent,ForgotPasswordComponent,HeaderComponent],
+  imports: [RouterModule,ProductCategoryMenuComponent ,FormsModule,HeaderComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
